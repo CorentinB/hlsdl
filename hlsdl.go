@@ -43,11 +43,11 @@ type DownloadResult struct {
 	SeqId uint64
 }
 
-func New(hlsURL string, headers map[string]string, dir string, workers int, enableBar bool) *HlsDl {
+func New(hlsURL string, headers map[string]string, dir string, workers int, enableBar bool, client *http.Client) *HlsDl {
 	hlsdl := &HlsDl{
 		hlsURL:    hlsURL,
 		dir:       dir,
-		client:    &http.Client{},
+		client:    client,
 		workers:   workers,
 		enableBar: enableBar,
 		headers:   headers,

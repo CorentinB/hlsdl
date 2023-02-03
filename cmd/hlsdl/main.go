@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"net/http"
 	"os"
 
 	"github.com/canhlinh/hlsdl"
@@ -52,7 +53,7 @@ func cmdF(command *cobra.Command, args []string) error {
 }
 
 func downloadVodMovie(url string, dir string, workers int) error {
-	hlsDL := hlsdl.New(url, nil, dir, workers, true)
+	hlsDL := hlsdl.New(url, nil, dir, workers, true, &http.Client{})
 	filepath, err := hlsDL.Download()
 	if err != nil {
 		return err
