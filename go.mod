@@ -1,4 +1,4 @@
-module github.com/canhlinh/hlsdl
+module github.com/CorentinB/hlsdl
 
 require (
 	github.com/grafov/m3u8 v0.11.1
