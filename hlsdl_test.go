@@ -13,7 +13,7 @@ func TestDescrypt(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	hlsDl := New("https://cdn.theoplayer.com/video/big_buck_bunny_encrypted/stream-800/index.m3u8", nil, "./download", 2, false, &http.Client{})
+	hlsDl := New("https://cdn.theoplayer.com/video/big_buck_bunny_encrypted/stream-800/index.m3u8", nil, "./download", 2, false, "", &http.Client{})
 	seg := segs[0]
 	seg.Path = fmt.Sprintf("%s/seg%d.ts", hlsDl.dir, seg.SeqId)
 	if err := hlsDl.downloadSegment(seg); err != nil {
@@ -27,7 +27,7 @@ func TestDescrypt(t *testing.T) {
 }
 
 func TestDownload(t *testing.T) {
-	hlsDl := New("https://cdn.theoplayer.com/video/big_buck_bunny_encrypted/stream-800/index.m3u8", nil, "./download", 2, false, &http.Client{})
+	hlsDl := New("https://cdn.theoplayer.com/video/big_buck_bunny_encrypted/stream-800/index.m3u8", nil, "./download", 2, false, "", &http.Client{})
 	filepath, err := hlsDl.Download()
 	if err != nil {
 		t.Fatal(err)
